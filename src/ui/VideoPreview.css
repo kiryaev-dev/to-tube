@@ -1,0 +1,68 @@
+.video-preview {
+    display: inline-flex;
+    flex-direction: column;
+
+    padding: 12px;
+}
+
+.text {
+    border-radius: 666px;
+    height: 0.7em;
+}
+
+.item {
+    background-color: lightgrey;
+}
+
+.video-preview > .thumbnail {
+    width: 228px;
+    height: 128px;
+    border-radius: 6px;
+}
+
+.video-preview > .info {
+    width: 100%;
+    padding-top: 12px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.video-preview > .info > .left > .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.video-preview > .info > .right {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 8px;
+}
+
+.video-preview > .info > .right > .title {
+    width: 80%;
+}
+
+.video-preview > .info > .right > .channel-name {
+    width: 40%;
+    margin-top: 8px;
+}
+
+.video-preview > .info > .right > .stats {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+}
+
+.video-preview > .info > .right > .stats > .text {
+    width: 30%;
+    margin-right: 4px;
+}
+
+.video-preview > .info > .right > .stats:first-child {
+    margin-right: 0;
+}
