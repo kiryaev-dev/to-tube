@@ -8,6 +8,9 @@ function Application() {
             <header className="top-bar">
 
             </header>
+            <div className="content">
+
+            </div>
         </div>
     )
 }
