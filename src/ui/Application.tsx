@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MdHome } from "react-icons/all"
+import { IoMdMenu } from "react-icons/all"
 
 import { ApplicationContext } from "./contexts/contexts"
 
@@ -9,23 +9,15 @@ import NavigationMenu from "./NavigationMenu"
 import {useState} from "react"
 import IPage from "./IPage"
 
+import HomePage from './pages/HomePage'
+
 const Pages: Array<IPage> = [
-    {
-        id: 'home',
-        title: 'Home',
-        icon: <MdHome size={24} />,
-        page: <h1>Home</h1>
-    },
-    {
-        id: 'trends',
-        title: 'Trends',
-        icon: <MdHome size={24} />,
-        page: <h1>Trends</h1>
-    }
+    HomePage
 ]
 
 function Application() {
     const [currentPage, setCurrentPage] = useState(Pages[0])
+    const [isSidebarOpen, setSidebarOpen] = useState(false)
 
     const context: IApplicationContext = {
         pages: Pages,
@@ -39,15 +31,22 @@ function Application() {
         <ApplicationContext.Provider value={context}>
             <div className="application">
                 <header className="top-bar">
-
+                    <button
+                        onClick={() => setSidebarOpen(!isSidebarOpen)}
+                        className="toggle-menu">
+                        <IoMdMenu size={24} />
+                    </button>
+                    <h1 className="title">ToTube</h1>
                 </header>
                 <div className="content">
-                    <div className="sidebar">
+                    <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
                         <NavigationMenu />
                     </div>
                     <main className="page">
                         {currentPage.page}
                     </main>
+
+                    { isSidebarOpen ? <div className="dim" /> : <></> }
                 </div>
             </div>
         </ApplicationContext.Provider>

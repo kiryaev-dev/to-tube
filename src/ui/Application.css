@@ -14,8 +14,44 @@
 
     padding: 16px;
 
+    display: flex;
+    flex-grow: 0;
+    align-items: center;
+
     box-shadow: 0 0 8px 0 #0008;
     z-index: 999;
+}
+
+.application > .top-bar > .toggle-menu {
+    width: 24px;
+    height: 24px;
+
+    margin-right: 32px;
+
+    background-color: transparent;
+    border: none;
+}
+
+@media (min-width: 1200px) {
+    .application > .top-bar > .toggle-menu {
+        display: none;
+    }
+}
+
+.application > .top-bar > .title {
+    font-size: 1.17em;
+}
+
+@media (max-width: 1200px) {
+    .application > .content > .dim {
+        width: 100%;
+        height: 100%;
+        background-color: #0004;
+
+        position: absolute;
+
+        z-index: 100;
+    }
 }
 
 .application > .content {
@@ -28,12 +64,32 @@
 }
 
 .application > .content > .sidebar {
-    width: 228px;
+    min-width: 228px;
+    height: 100%;
 
     overflow-y: auto;
     overflow-x: hidden;
 
     padding: 6px;
 
+    z-index: 200;
+
     border-right: solid 1px #0002;
+    background-color: white;
+}
+
+@media (max-width: 1200px) {
+    .application > .content > .sidebar {
+        position: absolute;
+
+        transition: transform 60ms ease;
+    }
+
+    .application > .content > .sidebar.open {
+        transform: translate(0, 0);
+    }
+
+    .application > .content > .sidebar.closed {
+        transform: translate(-100%, 0);
+    }
 }
