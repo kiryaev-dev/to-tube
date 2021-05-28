@@ -1,22 +1,27 @@
 import * as React from 'react'
 
 import "./NavigationMenuItem.css"
+import IPage from "./IPage"
+import {useContext} from "react";
+import {ApplicationContext} from "./contexts/contexts";
 
 interface INavigationMenuItemProperties {
-    title: string
-    icon: React.ReactElement
+    page: IPage
     isSelected?: boolean
-    onClick?: () => void
 }
 
 function NavigationMenuItem(props: INavigationMenuItemProperties) {
-    const {icon, title, onClick} = props
+    const {icon, title} = props.page
     const isSelected = props.isSelected || false;
+
+    const applicationContext = useContext(ApplicationContext)
 
     return (
         <div
-            className={`navigation-menu-item ${isSelected ? 'selected' : ''}`}
-            onClick={onClick}>
+            onClick={() => {
+                applicationContext!!.open(props.page)
+            }}
+            className={`navigation-menu-item ${isSelected ? 'selected' : ''}`}>
             {icon}
             <span className="title">{title}</span>
         </div>
