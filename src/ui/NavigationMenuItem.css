@@ -1,0 +1,25 @@
+.navigation-menu-item {
+    width: 100%;
+    padding: 6px;
+    margin-top: 6px;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    color: #a29bfe;
+}
+
+.navigation-menu-item > .title {
+    margin-left: 12px;
+    font-size: 1rem;
+}
+
+.navigation-menu-item.selected {
+    border-radius: 8px;
+
+    background-color: #a29bfe44;
+    color: #6c5ce7;
+}
+
