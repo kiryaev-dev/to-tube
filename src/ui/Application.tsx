@@ -10,10 +10,9 @@ import {useState} from "react"
 import IPage from "./IPage"
 
 import HomePage from './pages/HomePage'
+import SearchPage from "./pages/SearchPage"
 
-const Pages: Array<IPage> = [
-    HomePage
-]
+const Pages: Array<IPage> = [HomePage, SearchPage]
 
 function Application() {
     const [currentPage, setCurrentPage] = useState(Pages[0])
